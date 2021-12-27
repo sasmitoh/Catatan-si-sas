@@ -19,3 +19,4 @@
 19. Draggable, DragTarget, SizedBox, Material - 26/12/2021
 20. Multi Page/Screen Navigation - 26/12/2021
 21. AppBar Gradasi dengan Corak (AppBar, IconButton, Icon) - 26/12/2021
+22. Card Widget - 27/12/2021
