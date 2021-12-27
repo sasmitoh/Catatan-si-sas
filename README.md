@@ -1,2 +1,3 @@
 # Catatan-si-sas
-Berikut ini adalah catatan si sas .. penasaran ikuti aja
+Berikut ini adalah catatan si sas .. 
+mengenai belajar Flutter dan Laravel 8

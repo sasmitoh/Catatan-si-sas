@@ -1,0 +1,1 @@
+Anynomous methd adalah method yang tidak mempunyai nama
