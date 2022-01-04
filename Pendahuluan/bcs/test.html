@@ -1,0 +1,119 @@
+   <!-- Item budget -->
+   <fieldset class="form-group border p-3" >
+    <legend class="w-auto px-2" style="font-size:14px"><i>Item Budget</i></legend>
+    <?php DynamicFormWidget::begin([
+    'widgetContainer' => 'dynamicform_wrapper', // required: only alphanumeric characters plus "_" [A-Za-z0-9_]
+    'widgetBody' => '.container-items', // required: css class selector
+    'widgetItem' => '.item', // required: css class
+    'limit' => 100, // the maximum times, an element can be cloned (default 999)
+    'min' => 1, // 0 or 1 (default 1)
+    'insertButton' => '.add-item', // css class
+    'deleteButton' => '.remove-item', // css class
+    'model' => $modelsMdsChildBudget[0],
+    'formId' => 'dynamic-form',
+    'formFields' => [
+        // 'id_childBudget',
+        'budget_id',
+        // 'anp_id',
+        'budget',
+        'usage_anp',
+    ],
+]); ?>
+
+<div class="container-items" style="margin-top:-20px"><!-- widgetContainer -->
+<?php foreach ($modelsMdsChildBudget as $i => $modelMdsChildBudget): ?>
+    <div class="item card"><!-- widgetBody -->
+    <div class="card-body" style="margin:-10px">
+            <?php
+                // necessary for update action.
+                if (! $modelMdsChildBudget->isNewRecord) {
+                    echo Html::activeHiddenInput($modelMdsChildBudget, "[{$i}]id_childBudget");
+                    // print_r($modelItemWo);
+                    // die();
+                }
+            ?>
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="form-group row">
+                        <label class="col-sm-6 col-form-label" style="margin-right: -150px; margin-bottom: -100px;">Periode</label>
+                        <div class="col-sm-9" style="margin-bottom: -100px; ">
+                            <?= $form->field($modelMdsChildBudget, "[{$i}]budget_id")->textInput(['maxlength' => true])->label(false) ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-5">
+                    <div class="form-group row">
+                        <label class="col-sm-6 col-form-label" style="margin-right: -150px; margin-bottom: -100px;">Budget</label>
+                        <div class="col-sm-9" style="margin-bottom: -100px;">
+                            <?= $form->field($modelMdsChildBudget, "[{$i}]budget")->textInput(['maxlength' => true])->label(false) ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="float-right">
+                        <button type="button" class="add-item btn btn-success btn-sm"><i class="fas fa-plus"></i></i></button>
+                        <button type="button" class="remove-item btn btn-danger btn-sm"><i class="fas fa-minus"></i></button>
+                    </div>
+                </div>
+            </div><!-- .row -->
+        </div>
+    </div>
+<?php endforeach; ?>
+</div>
+<?php DynamicFormWidget::end(); ?>
+    </fieldset>
+
+
+
+
+    <div class="table-responsive">
+        <div class="table table-sm">
+            <div id="grid"></div>
+        </div>
+        </div>
+        <script>
+            $("#grid").kendoGrid({
+                dataSource: {
+                    schema: {
+                        model: {
+                            id: "id",
+                            fields: {
+                                OperationContext: {
+                                    type: "string",
+                                    editable: "false"
+                                }
+                            }
+                        }
+                    }
+                },
+                editable: "popup",
+                toolbar: [{
+                    name: "create",
+                    text: "Add a New Record"
+                }],
+                columns: [{
+                    field: "Periode",
+                    title: "Periode",
+                    
+                    
+                }, {
+                    field: "Budget",
+                    title: "Budget"
+                }, {
+                    field: "OperationContext",
+                    title: "Operation Context"
+                }, {
+                    command: ["edit", "destroy"],
+                    title: "&nbsp;",
+                    width: "250px"
+                }],
+                edit: function(e) {
+                    var model = e.model;
+
+                    if (model.isNew()) { // add new record
+                        model.set("OperationContext", "IsAdded");
+                    }
+                },
+            });
+        </script>

@@ -20,3 +20,17 @@
 20. Multi Page/Screen Navigation - 26/12/2021
 21. AppBar Gradasi dengan Corak (AppBar, IconButton, Icon) - 26/12/2021
 22. Card Widget - 27/12/2021
+23. TextField Widget - 29/12/2021
+24. 20 TextField Decoration - 29/12/2021
+25. 21 Media Query - 02/01/2022
+26. 22 inkWell (Membuat sendri button Gradasi) - 02/01/2022
+27. 23 Opacity (Custom card dengan latar bercorak) - 02/01/2022
+28. 24 Positioned, FLoatingActionButton, LoginPage - 02/01/2022
+29. 25 Hero & ClipRect - 02/01/2022
+30. 26 App bar Custom - 02/01/2022
+31. 27 Tab Bar - 02/01/2022
+32. 28 Mengubah Tab Bar - 02/01/2022
+32. 29 Menampilkan QR Code - 02/01/2022 (version: https://www.qrcode.com/en/about/version.html)
+33. 30 Button belah ketupat - 02/01/2022
+34. 31 Gradients Opacity - 02/01/2022
+35. 32 Memainkan musik - 02/01/2022
